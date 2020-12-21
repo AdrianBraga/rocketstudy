@@ -8,9 +8,9 @@ const server = express();
 server.use(express.static('./src/public'));
 server.use(routes);
 
-server.set(express('view engine', 'njk'));
+server.set('view engine', 'njk');
 
-nunjucks.configure('views', {
+nunjucks.configure('./src/views', {
   express: server,
   autoescape: false,
   noCache: false,
