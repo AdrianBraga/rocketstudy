@@ -1,0 +1,27 @@
+{
+  "name": "rocketstudy",
+  "version": "1.0.0",
+  "description": "Plataforma de estudos online. Aqui os seus estudos vão para o próximo nível",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdrianBraga/rocketstudy.git"
+  },
+  "keywords": [],
+  "author": "Adrian Braga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdrianBraga/rocketstudy/issues"
+  },
+  "homepage": "https://github.com/AdrianBraga/rocketstudy#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nunjucks": "^3.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
