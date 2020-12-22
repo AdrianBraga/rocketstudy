@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --color-text: #322153;
+  --color-green: #34CB79;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: #F0F0F5;
+}
+
+/* === HEADER/MENU === */
+
+header {
+  width: 100%;
+  background: #FFFFFF;
+  padding: 32px;
+  text-align: center;
+}
+
+.links {
+  font-size: 22px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #777;
+  position: relative;
+}
+
+.links a + a {
+  margin-left: 32px;
+}
+
+.links a.active {
+  color: var(--color-text);
+  font-weight: bold;
+}
+
+.links a:hover {
+  color: var(--color-text);
+}
+
+.links a::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: var(--color-text);
+  
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+}
+
+.links a:hover::after {
+  width: 100%;
+  transition: width 700ms ease-in-out;
+}
+
+/* === CARD/PAGE TEACHERS === */
+.card {
+  width: 100%;
+  max-width: 800px;
+  min-height: 400px;
+
+  background-color: #fff;
+  margin: 45px auto;
+
+  display: grid;
+  grid-template-columns: 40% 60%;
+
+  box-shadow: 0 0 1em -2px #000;
+
+  animation: left 700ms ease-out;
+}
+
+@keyframes left {
+  from {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.details {
+  padding: 32px;
+}
+
+.details .item {
+  border-top: 1px solid #777;
+  padding: 16px 0;
+}
+
+.details .item:first-child {
+  border: none;
+}
+
+.details .item div:nth-child(1) {
+  font-size: 14px;
+  color: #A0A0B2;
+  font-weight: normal;
+  line-height: 24px;
+  letter-spacing: 0.7px;
+}
+
+.details .item div:nth-child(2) {
+  font-size: 18px;
+  font-weight: bold;
+  color: #6C6C80;
+}
+
+.details .item div:nth-child(2) span {
+  color: var(--color-text);
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  background-color: var(--color-green);
+  padding: 8px 16px;
+  border-radius: 16px;
+  margin-right: 4px;
+  margin-top: 8px;
+
+  display: inline-block;
+
+}
+
