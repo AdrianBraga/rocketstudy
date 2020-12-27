@@ -1,0 +1,14 @@
+{
+  "teachers": [
+    {
+      "id": 1,
+      "avatar_url": "https://www.google.com",
+      "name": "Google",
+      "date_birth": 1608940800000,
+      "schooling": "doutorado",
+      "type_class": "presential",
+      "subject": "Física e Matemática",
+      "created_at": 1609033372806
+    }
+  ]
+}
