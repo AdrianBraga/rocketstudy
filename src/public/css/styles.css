@@ -159,7 +159,8 @@ input::placeholder {
   font-weight: normal;
 }
 
-button[type="submit"] {
+button[type="submit"],
+a.buttonEdit {
   padding: 16px 32px;
   background-color: var(--color-green);
   color: var(--color-text);
@@ -170,7 +171,14 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-button[type="submit"]:hover {
+button[type="submit"]:hover,
+a.buttonEdit:hover {
   background-color: #2FB86E;
+}
+
+a.buttonEdit {
+  display: block;
+  text-align: center;
+  text-decoration: none;
 }
 

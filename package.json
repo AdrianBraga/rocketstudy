@@ -21,6 +21,7 @@
   "homepage": "https://github.com/AdrianBraga/rocketstudy#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "intl": "^1.2.5",
     "nunjucks": "^3.2.2"
   },
   "devDependencies": {

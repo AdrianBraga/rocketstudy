@@ -1,5 +1,8 @@
 const fs = require('fs');
+const Intl = require('intl');
+
 const data = require('./data.json');
+const { age, graduation } = require('./src/public/js/utils');
 
 // POST
 exports.post = function(req, res) {
@@ -11,7 +14,7 @@ exports.post = function(req, res) {
   }
 
   // Desestrutura os dados
-  let {avatar_url, name, date_birth, schooling, type_class, subject} = req.body;
+  let {avatar_url, name, date_birth, graduation, type_class, subjects} = req.body;
 
   // Cria data
   date_birth = Date.parse(req.body.date_birth) ;
@@ -25,9 +28,9 @@ exports.post = function(req, res) {
     avatar_url,
     name,
     date_birth,
-    schooling,
+    graduation,
     type_class,
-    subject,
+    subjects,
     created_at
   });
 
@@ -38,6 +41,27 @@ exports.post = function(req, res) {
     return res.redirect('teachers')
   })
 }
+
+// SHOW
+exports.show = function(req, res) {
+  const { id } = req.params;
+
+  const foundTeachers = data.teachers.find(function(teachers) {
+    return teachers.id == id
+  });
+
+  if(!foundTeachers) return res.send('Não Há Professor Aqui!');
+
+  const teacher = {
+    ...foundTeachers,
+    age: age(foundTeachers.date_birth),
+    subjects: foundTeachers.subjects.split(","),
+    graduation: graduation(foundTeachers.graduation),
+    created_at: new Intl.DateTimeFormat('pt-BR').format(foundTeachers.created_at)
+  }
+
+  return res.render('teachers/show', { teacher })
+};
 // PUT
 
 // DELETE
