@@ -2,7 +2,7 @@ const fs = require('fs');
 const Intl = require('intl');
 
 const data = require('./data.json');
-const { age, graduation } = require('./src/public/js/utils');
+const { age, graduation, date } = require('./src/public/js/utils');
 
 // POST
 exports.post = function(req, res) {
@@ -62,6 +62,23 @@ exports.show = function(req, res) {
 
   return res.render('teachers/show', { teacher })
 };
+
 // PUT
+exports.put = function(req, res) {
+  const { id } = req.params;
+
+  const foundTeachers = data.teachers.find(function(teachers) {
+    return teachers.id == id
+  });
+
+  if(!foundTeachers) return res.send('Não Há Professor Aqui!');
+
+  const teacher = {
+    ...foundTeachers,
+    birthDate: date(foundTeachers.date_birth)
+  }
+
+  return res.render('teachers/edit', { teacher })
+};
 
 // DELETE

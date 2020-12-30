@@ -19,9 +19,7 @@ routes.post('/teachers', teachers.post);
 
 routes.get('/teachers/:id', teachers.show);
 
-routes.get('/teachers/:id/edit', function(req, res) {
-  return res.render('teachers/edit')
-})
+routes.get('/teachers/:id/edit', teachers.put);
 
 routes.get('/students', function(req, res) {
   return res.render('students/index');

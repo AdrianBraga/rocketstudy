@@ -8,59 +8,11 @@
 
     <section class="details">
 
-      <h1>Cadastrar Professor</h1>
+      <h3>Cadastrar Professor</h3>
 
-      <div class="item">
-        <div>Avatar URL *</div>
-        <div>
-          <input type="url" name="avatar_url" placeholder="https://">
-        </div>
-      </div>
-
-      <div class="item">
-        <div>Nome Completo *</div>
-        <div>
-          <input type="text" name="name" placeholder="Seu nome completo">
-        </div>
-      </div>
-
-      <div class="item">
-        <div>Data de Nascimento *</div>
-        <div>
-          <input type="date" name="date_birth">
-        </div>
-      </div>
-
-       <div class="item">
-        <div>Grau de Escolaridade *</div>
-        <div>
-          <select name="graduation">
-            <option selected disabled label="Selecione a sua graduação"></option>
-            <option value="medio">Ensino Médio Completo</option>
-            <option value="superior">Ensino Superior Completo</option>
-            <option value="mestrado">Mestrado</option>
-            <option value="doutorado">Doutorado</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="item">
-        <div>Tipo de Aula *</div>
-        <div>
-          <span><input type="radio" name="type_class" value="presential" checked>Presencial</span>
-          <span><input type="radio" name="type_class" value="distance">À Distancia</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div>Área de Atuação</div>
-        <div>
-          <input type="text" name="subjects" placeholder="Física, Química - Separe apenas por vírgula">
-        </div>
-      </div>
+      {% include 'teachers/fields.njk' %}
 
       <button type="submit">Cadastrar</button>
-
     </section>
   </form>
 {% endblock content %}

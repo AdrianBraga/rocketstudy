@@ -106,12 +106,19 @@ header {
   border: none;
 }
 
+.details h3,
 .details .item div:nth-child(1) {
   font-size: 14px;
   color: #A0A0B2;
   font-weight: normal;
   line-height: 24px;
   letter-spacing: 0.7px;
+}
+
+.details h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--color-text);
 }
 
 .details .item div:nth-child(2) {
@@ -167,7 +174,7 @@ a.buttonEdit {
   border-radius: 4px;
   margin-top: 32px;
   width: 100%;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
 }
 
