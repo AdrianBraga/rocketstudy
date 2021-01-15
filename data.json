@@ -1,14 +1,15 @@
 {
   "teachers": [
     {
-      "id": 1,
+      "id": "1",
       "avatar_url": "https://www.nea.org/sites/default/files/legacy/2020/04/new_teacher.jpeg",
       "name": "Elena",
-      "date_birth": 946425600000,
+      "date_birth": "1999-12-29",
       "graduation": "doutorado",
       "type_class": "distance",
-      "subjects": "Física",
-      "created_at": 1609265016306
+      "subjects": "Física, Química",
+      "created_at": 1609265016306,
+      "birth": null
     },
     {
       "id": 2,

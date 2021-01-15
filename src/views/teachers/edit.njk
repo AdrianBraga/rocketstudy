@@ -7,12 +7,14 @@
     </section>
 
     <section class="details">
+      <form action="/teachers?_method=PUT" method="POST">
+        <h3>Editar Professor</h3>
 
-      <h3>Editar Professor</h3>
+        {% include 'teachers/fields.njk' %}
 
-      {% include 'teachers/fields.njk' %}
-
-      <button type="submit">Salvar</button>
+        <input type="hidden" name="id" value={{teacher.id}}>
+        <button type="submit">Salvar</button>
+      </form>
     </section>
   </div>
 {% endblock content %}

@@ -189,3 +189,16 @@ a.buttonEdit {
   text-decoration: none;
 }
 
+#form-delete {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+#form-delete button[type="submit"] {
+  background-color: #ff4f4f;
+}
+
+#form-delete button[type="submit"]:hover {
+  background-color: #EB1E1C;
+}

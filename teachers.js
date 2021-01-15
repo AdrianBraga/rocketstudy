@@ -36,7 +36,7 @@ exports.post = function(req, res) {
 
   // Escreve os dados em um arquivo JSON
   fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err) {
-    if(err) return res.send('Error! Falaha na escrita dos dados!');
+    if(err) return res.send('Error! Falha na escrita dos dados!');
 
     return res.redirect('teachers')
   })
@@ -63,8 +63,8 @@ exports.show = function(req, res) {
   return res.render('teachers/show', { teacher })
 };
 
-// PUT
-exports.put = function(req, res) {
+// EDIT
+exports.edit = function(req, res) {
   const { id } = req.params;
 
   const foundTeachers = data.teachers.find(function(teachers) {
@@ -80,5 +80,35 @@ exports.put = function(req, res) {
 
   return res.render('teachers/edit', { teacher })
 };
+
+// PUT
+exports.put = function(req, res) {
+  const { id } = req.body;
+
+  let index = 0;
+
+  const foundTeachers = data.teachers.find(function(teachers, foundIndex) {
+    if(teachers.id == id) {
+      index = foundIndex
+      return true;
+    };
+  });
+
+  if(!foundTeachers) return res.send('Não Há Professor Aqui!');
+
+  const teacher = {
+    ...foundTeachers,
+    ...req.body,
+    birth: Date.parse(req.body.birth)
+  };
+
+  data.teachers[index] = teacher;
+  
+  fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err) {
+    if(err) return res.send('Error! Falha na escrita dos dados!');
+
+    return res.redirect(`teachers/${id}`)
+  });
+}
 
 // DELETE
