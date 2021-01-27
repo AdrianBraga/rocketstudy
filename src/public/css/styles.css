@@ -127,7 +127,8 @@ header {
   color: #6C6C80;
 }
 
-.details .item div:nth-child(2) span {
+.details .item div:nth-child(2) span,
+.table-container tbody tr td span.subjects {
   color: var(--color-text);
   font-size: 12px;
   font-weight: bold;
@@ -201,4 +202,70 @@ a.buttonEdit {
 
 #form-delete button[type="submit"]:hover {
   background-color: #EB1E1C;
+}
+
+/* === INDEX / TEACHERS === */
+.table-container {
+  display: block;
+  padding: 40px;
+}
+
+.table-container table {
+  border-spacing: 0;
+}
+
+.table-container thead tr th,
+.table-container tbody tr td {
+  text-align: center;
+}
+
+.table-container tbody tr td {
+  color: var(--color-text);
+}
+
+.table-container th,
+.table-container td {
+  padding: 16px;
+  border-bottom: 1px solid #777;
+}
+
+.table-container th {
+  text-transform: uppercase;
+  color: #6C6C80;
+}
+
+.table-container tbody tr:last-child td {
+  border: none;
+}
+
+.table-container tbody tr td div {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  align-items: center;
+}
+
+.table-container tbody tr td:first-child span {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--color-green);
+
+  background-position: center;
+  background-size: cover;
+
+  box-shadow: 3px 1px 6px -4px black;
+}
+
+.table-container tbody tr td:last-child a {
+  background-color: var(--color-green);
+  padding: 8px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--color-text);
+  font-size: 12px;
+  border-radius: 6px;
+}
+
+.table-container tbody tr td:last-child a:hover {
+  background-color: #2FB86E;
 }

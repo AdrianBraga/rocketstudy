@@ -1,44 +1,26 @@
 {
   "teachers": [
     {
-      "id": "1",
-      "avatar_url": "https://www.nea.org/sites/default/files/legacy/2020/04/new_teacher.jpeg",
-      "name": "Elena",
-      "date_birth": "1999-12-29",
+      "id": 1,
+      "avatar_url": "https://cdn.awsli.com.br/600x700/1035/1035809/produto/38424928/a2686d2305.jpg",
+      "name": "Rocketseat",
+      "date_birth": "2000-12-30",
       "graduation": "doutorado",
-      "type_class": "distance",
-      "subjects": "Física, Química",
-      "created_at": 1609265016306,
+      "type_class": "presential",
+      "subjects": "Estude, Se Capacite, Seja um Foguete, Rocketseat, Matemática, Programação, Estude, Se Capacite, Seja um Foguete, Rocketseat, Matemática, Programação",
+      "created_at": 1609283059600,
       "birth": null
     },
     {
       "id": 2,
-      "avatar_url": "https://www.nea.org/sites/default/files/legacy/2020/04/new_teacher.jpeg",
-      "name": "Vazio",
-      "date_birth": 1609200000000,
-      "type_class": "presential",
-      "subjects": "Texto e oi",
-      "created_at": 1609265435747
-    },
-    {
-      "id": 3,
       "avatar_url": "https://cdn.awsli.com.br/600x700/1035/1035809/produto/38424928/a2686d2305.jpg",
-      "name": "RocketStudy",
-      "date_birth": 978134400000,
-      "graduation": "doutorado",
-      "type_class": "presential",
-      "subjects": "Estude, Se Capacite, Seja um Foguete",
-      "created_at": 1609283059600
-    },
-    {
-      "id": 4,
-      "avatar_url": "https://cdn.awsli.com.br/600x700/1035/1035809/produto/38424928/a2686d2305.jpg",
-      "name": "RocketStudy",
-      "date_birth": 978134400000,
+      "name": "Rocketstudy",
+      "date_birth": "2000-12-30",
       "graduation": "doutorado",
       "type_class": "distance",
       "subjects": "Estude, Se Capacite, Seja um Foguete",
-      "created_at": 1609283531775
+      "created_at": 1609283531775,
+      "birth": null
     }
   ]
 }

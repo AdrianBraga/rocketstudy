@@ -1,44 +1,34 @@
 {% extends 'layout.njk' %}
 
 {% block content %}
-  <div class="card">
-    <section class="avatar" style="background: url(https://source.unsplash.com/collection/4914384) no-repeat center center / cover;">
+  <div class="card table-container">
+    <table style='width: 100%'>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Acompanhamento</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
 
-    </section>
-
-    <section class="details">
-      <div class="item">
-        <div>Nome</div>
-        <div>Guilherme Saraiva</div>
-      </div>
-
-      <div class="item">
-        <div>Idade</div>
-        <div>29</div>
-      </div>
-
-      <div class="item">
-        <div>Grau de Escolaridade</div>
-        <div>Doutorado</div>
-      </div>
-
-      <div class="item">
-        <div>Tipo de Aula</div>
-        <div>Presencial ou à distância</div>
-      </div>
-
-      <div class="item">
-        <div>Acompanhamento</div>
-        <div>
-          <span>Matemática</span>
-          <span>Física</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div>Desde</div>
-        <div>22/12/2020</div>
-      </div>
-    </section>
+      <tbody>
+        {% for teacher in teachers %}
+          <tr>
+            <td>
+              <div>
+                <span style='background-image: url({{teacher.avatar_url}})'></span>
+                {{teacher.name}}
+              </div>
+            </td>
+            <td>
+              {% for subject in teacher.subjects.split(',') %}
+                <span class='subjects'>{{subject}}</span>
+              {% endfor %}
+            </td>
+            <td><a href="/teachers/{{teacher.id}}">Ver</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </div>
 {% endblock content %}
