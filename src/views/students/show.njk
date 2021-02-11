@@ -1,0 +1,54 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+  <div class="card">
+    <section class="avatar" style="background: url({{student.avatar_url}}) no-repeat center center / cover;">
+
+    </section>
+
+    <section class="details">
+      <h3>Detalhes do Estudante</h3>
+
+      <div class="item">
+        <div>Nome</div>
+        <div>{{student.name}}</div>
+      </div>
+
+      <div class="item">
+        <div>Idade</div>
+        <div>{{student.age}} Anos</div>
+      </div>
+
+      <div class="item">
+        <div>Grau de Escolaridade</div>
+        <div>{{student.graduation}}</div>
+      </div>
+
+      <div class="item">
+        <div>Tipo de Aula</div>
+        <div>{{'Presencial' if student.type_class == 'presential' else 'À distancia'}}</div>
+      </div>
+
+      <div class="item">
+        <div>Acompanhamento</div>
+        <div>
+          {% for subject in student.subjects %}
+            <span>{{subject}}</span>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="item">
+        <div>Desde</div>
+        <div>{{student.created_at}}</div>
+      </div>
+
+       <form id="form-delete" action="/students?_method=DELETE" method="POST">
+        <input type="hidden" name="id" value={{student.id}}>
+        
+        <a href="/students/{{student.id}}/edit" class="buttonEdit">Editar</a>
+        <button type="submit">Excluir</button>
+      </form>
+    </section>
+  </div>
+{% endblock content %}

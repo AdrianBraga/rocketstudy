@@ -1,0 +1,48 @@
+<div class="item">
+  <div>Avatar URL *</div>
+  <div>
+    <input type="url" name="avatar_url" placeholder="https://" value="{{student.avatar_url}}">
+  </div>
+</div>
+
+<div class="item">
+  <div>Nome Completo *</div>
+  <div>
+    <input type="text" name="name" placeholder="Seu nome completo" value="{{student.name}}">
+  </div>
+</div>
+
+<div class="item">
+  <div>Data de Nascimento *</div>
+  <div>
+    <input type="date" name="date_birth" value="{{student.birthDate}}">
+  </div>
+</div>
+
+  <div class="item">
+  <div>Grau de Escolaridade *</div>
+  <div>
+    <select name="graduation">
+      <option selected disabled label="Selecione a sua graduação"></option>
+      <option value="medio" {% if student.graduation == 'medio'%} selected {% endif %}>Ensino Médio Completo</option>
+      <option value="superior" {% if student.graduation == 'superior'%} selected {% endif %}>Ensino Superior Completo</option>
+      <option value="mestrado" {% if student.graduation == 'mestrado'%} selected {% endif %}>Mestrado</option>
+      <option value="doutorado" {% if student.graduation == 'doutorado'%} selected {% endif %}>Doutorado</option>
+    </select>
+  </div>
+</div>
+
+<div class="item">
+  <div>Tipo de Aula *</div>
+  <div>
+    <span><input type="radio" name="type_class" value="presential" checked {% if student.type_class == 'presential' %} checked {% endif %}>Presencial</span>
+    <span><input type="radio" name="type_class" value="distance" {% if student.type_class == 'distance' %} checked {% endif %}>À Distancia</span>
+  </div>
+</div>
+
+<div class="item">
+  <div>Área de Atuação</div>
+  <div>
+    <input type="text" name="subjects" placeholder="Física, Química - Separe apenas por vírgula" value="{{student.subjects}}">
+  </div>
+</div>
