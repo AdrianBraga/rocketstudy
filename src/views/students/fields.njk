@@ -13,36 +13,43 @@
 </div>
 
 <div class="item">
+  <div>Email *</div>
+  <div>
+    <input type="email" name="email" placeholder="Seu email" value="{{student.email}}">
+  </div>
+</div>
+
+<div class="item">
   <div>Data de Nascimento *</div>
   <div>
     <input type="date" name="date_birth" value="{{student.birthDate}}">
   </div>
 </div>
 
-  <div class="item">
-  <div>Grau de Escolaridade *</div>
-  <div>
-    <select name="graduation">
-      <option selected disabled label="Selecione a sua graduação"></option>
-      <option value="medio" {% if student.graduation == 'medio'%} selected {% endif %}>Ensino Médio Completo</option>
-      <option value="superior" {% if student.graduation == 'superior'%} selected {% endif %}>Ensino Superior Completo</option>
-      <option value="mestrado" {% if student.graduation == 'mestrado'%} selected {% endif %}>Mestrado</option>
-      <option value="doutorado" {% if student.graduation == 'doutorado'%} selected {% endif %}>Doutorado</option>
-    </select>
-  </div>
+<div class="item">
+  <div>Ano Escolar *</div>
+    <div>
+      <select name="graduation">
+        <option selected disabled label="Selecione o seu ano escolar"></option>
+        <optgroup label='Ensino Fundamental'>
+          <option value="5_ensino_fundamental" {% if teacher.graduation == '5_ensino_fundamental'%} selected {% endif %}>5° Ano - Ensino Fundamental</option>
+          <option value="6_ensino_fundamental" {% if teacher.graduation == '6_ensino_fundamental'%} selected {% endif %}>6° Ano - Ensino Fundamental</option>
+          <option value="7_ensino_fundamental" {% if teacher.graduation == '7_ensino_fundamental'%} selected {% endif %}>7° Ano - Ensino Fundamental</option>
+          <option value="8_ensino_fundamental" {% if teacher.graduation == '8_ensino_fundamental'%} selected {% endif %}>8° Ano - Ensino Fundamental</option>
+          <option value="9_ensino_fundamental" {% if teacher.graduation == '9_ensino_fundamental'%} selected {% endif %}>9° Ano - Ensino Fundamental</option>
+        </optgroup>
+        <optgroup label='Ensino Médio'>
+          <option value="1_ensino_medio" {% if teacher.graduation == '1_ensino_medio'%} selected {% endif %}>1° Ano - Ensino Médio</option>
+          <option value="2_ensino_medio" {% if teacher.graduation == '2_ensino_medio'%} selected {% endif %}>2° Ano - Ensino Médio</option>
+          <option value="3_ensino_medio" {% if teacher.graduation == '3_ensino_medio'%} selected {% endif %}>3° Ano - Ensino Médio</option>
+        </optgroup>
+      </select>
+    </div>
 </div>
 
 <div class="item">
-  <div>Tipo de Aula *</div>
+  <div>Carga Horária *</div>
   <div>
-    <span><input type="radio" name="type_class" value="presential" checked {% if student.type_class == 'presential' %} checked {% endif %}>Presencial</span>
-    <span><input type="radio" name="type_class" value="distance" {% if student.type_class == 'distance' %} checked {% endif %}>À Distancia</span>
-  </div>
-</div>
-
-<div class="item">
-  <div>Área de Atuação</div>
-  <div>
-    <input type="text" name="subjects" placeholder="Física, Química - Separe apenas por vírgula" value="{{student.subjects}}">
+    <input type="number" name="carg_hour" value="{{student.cargHour}}" placeholder='5'>
   </div>
 </div>
