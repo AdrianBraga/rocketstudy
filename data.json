@@ -23,6 +23,24 @@
       "birth": null
     }
   ],
-
-  "students": []
+  "students": [
+    {
+      "id": 1,
+      "avatar_url": "https://www.google.com",
+      "name": "Google",
+      "email": "google@gmail.com",
+      "date_birth": 1580601600000,
+      "school_formation": "1_ensino_medio",
+      "carg_hour": "8"
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://www.google.com",
+      "name": "fegergerge",
+      "email": "google@email.com",
+      "date_birth": 1581379200000,
+      "school_formation": "5_ensino_fundamental",
+      "carg_hour": "4"
+    }
+  ]
 }

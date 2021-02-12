@@ -24,24 +24,33 @@ exports.post = function(req, res) {
   }
 
   // Desestrutura os dados
-  let {avatar_url, name, date_birth, graduation, type_class, subjects} = req.body;
+  let {avatar_url, name, email, date_birth, school_formation, carg_hour} = req.body;
 
   // Cria data
   date_birth = Date.parse(req.body.date_birth) ;
-  const created_at = Date.now();
 
   // Cria o ID - Temporariamente
-  const id = Number(data.students.length + 1);
+  // const id = Number(data.students.length + 1);
+
+  id = 1
+
+  for(let i = 0; i < data.students.length; i++) {
+    data.students.map(function(element) {
+      if(element.id == id)
+      return id = id + 1
+
+      return id
+    })
+  }
 
   data.students.push({
     id,
     avatar_url,
     name,
+    email,
     date_birth,
-    graduation,
-    type_class,
-    subjects,
-    created_at
+    school_formation,
+    carg_hour
   });
 
   // Escreve os dados em um arquivo JSON
@@ -60,14 +69,10 @@ exports.show = function(req, res) {
     return students.id == id
   });
 
-  if(!foundTeachers) return res.send('Não Há Professor Aqui!');
+  if(!foundTeachers) return res.send('Não Há Estudantes Aqui!');
 
   const student = {
     ...foundTeachers,
-    age: age(foundTeachers.date_birth),
-    subjects: foundTeachers.subjects.split(","),
-    graduation: graduation(foundTeachers.graduation),
-    created_at: new Intl.DateTimeFormat('pt-BR').format(foundTeachers.created_at)
   }
 
   return res.render('students/show', { student })
@@ -81,7 +86,7 @@ exports.edit = function(req, res) {
     return students.id == id
   });
 
-  if(!foundTeachers) return res.send('Não Há Professor Aqui!');
+  if(!foundTeachers) return res.send('Não Há Estudantes Aqui!');
 
   const student = {
     ...foundTeachers,
