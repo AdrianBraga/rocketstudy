@@ -1,5 +1,4 @@
 const fs = require('fs');
-const Intl = require('intl');
 
 const data = require('../../data.json');
 const { date, grade } = require('../public/js/utils');
@@ -65,16 +64,16 @@ exports.post = function(req, res) {
 exports.show = function(req, res) {
   const { id } = req.params;
 
-  const foundTeachers = data.students.find(function(students) {
+  const foundStudents = data.students.find(function(students) {
     return students.id == id
   });
 
-  if(!foundTeachers) return res.send('Não Há Estudantes Aqui!');
+  if(!foundStudents) return res.send('Não Há Estudantes Aqui!');
 
   const student = {
-    ...foundTeachers,
-    school: grade(foundTeachers.school_formation),
-    date_birth: date(foundTeachers.date_birth).bithDay 
+    ...foundStudents,
+    school: grade(foundStudents.school_formation),
+    date_birth: date(foundStudents.date_birth).bithDay 
   }
 
   return res.render('students/show', { student })
@@ -84,15 +83,15 @@ exports.show = function(req, res) {
 exports.edit = function(req, res) {
   const { id } = req.params;
 
-  const foundTeachers = data.students.find(function(students) {
+  const foundStudents = data.students.find(function(students) {
     return students.id == id
   });
 
-  if(!foundTeachers) return res.send('Não Há Estudantes Aqui!');
+  if(!foundStudents) return res.send('Não Há Estudantes Aqui!');
 
   const student = {
-    ...foundTeachers,
-    birthDate: date(foundTeachers.date_birth)
+    ...foundStudents,
+    birthDate: date(foundStudents.date_birth).iso,
   }
 
   return res.render('students/edit', { student })
@@ -104,19 +103,19 @@ exports.put = function(req, res) {
 
   let index = 0;
 
-  const foundTeachers = data.students.find(function(students, foundIndex) {
+  const foundStudents = data.students.find(function(students, foundIndex) {
     if(students.id == id) {
       index = foundIndex
       return true;
     };
   });
 
-  if(!foundTeachers) return res.send('Não Há Professor Aqui!');
+  if(!foundStudents) return res.send('Não Há Estudantes Aqui!');
 
   const student = {
-    ...foundTeachers,
+    ...foundStudents,
     ...req.body,
-    birth: Date.parse(req.body.birth),
+    date_birth: Date.parse(req.body.date_birth),
     id: Number(req.body.id)
   };
 
@@ -133,11 +132,11 @@ exports.put = function(req, res) {
 exports.delete = function(req, res) {
   const { id } = req.body;
 
-  const filteredTeachers = data.students.filter(function(student) {
+  const filteredStudents = data.students.filter(function(student) {
     return student.id != id
   });
 
-  data.students = filteredTeachers
+  data.students = filteredStudents
 
   fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err) {
     if(err) return res.send('Falha Ao Tentar Excluir');

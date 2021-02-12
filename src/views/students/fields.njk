@@ -32,16 +32,16 @@
       <select name="school_formation">
         <option selected disabled label="Selecione o seu ano escolar"></option>
         <optgroup label='Ensino Fundamental'>
-          <option value="5_ensino_fundamental" {% if teacher.graduation == '5_ensino_fundamental'%} selected {% endif %}>5° Ano - Ensino Fundamental</option>
-          <option value="6_ensino_fundamental" {% if teacher.graduation == '6_ensino_fundamental'%} selected {% endif %}>6° Ano - Ensino Fundamental</option>
-          <option value="7_ensino_fundamental" {% if teacher.graduation == '7_ensino_fundamental'%} selected {% endif %}>7° Ano - Ensino Fundamental</option>
-          <option value="8_ensino_fundamental" {% if teacher.graduation == '8_ensino_fundamental'%} selected {% endif %}>8° Ano - Ensino Fundamental</option>
-          <option value="9_ensino_fundamental" {% if teacher.graduation == '9_ensino_fundamental'%} selected {% endif %}>9° Ano - Ensino Fundamental</option>
+          <option value="5_ensino_fundamental" {% if student.school_formation == '5_ensino_fundamental'%} selected {% endif %}>5° Ano - Ensino Fundamental</option>
+          <option value="6_ensino_fundamental" {% if student.school_formation == '6_ensino_fundamental'%} selected {% endif %}>6° Ano - Ensino Fundamental</option>
+          <option value="7_ensino_fundamental" {% if student.school_formation == '7_ensino_fundamental'%} selected {% endif %}>7° Ano - Ensino Fundamental</option>
+          <option value="8_ensino_fundamental" {% if student.school_formation == '8_ensino_fundamental'%} selected {% endif %}>8° Ano - Ensino Fundamental</option>
+          <option value="9_ensino_fundamental" {% if student.school_formation == '9_ensino_fundamental'%} selected {% endif %}>9° Ano - Ensino Fundamental</option>
         </optgroup>
         <optgroup label='Ensino Médio'>
-          <option value="1_ensino_medio" {% if teacher.graduation == '1_ensino_medio'%} selected {% endif %}>1° Ano - Ensino Médio</option>
-          <option value="2_ensino_medio" {% if teacher.graduation == '2_ensino_medio'%} selected {% endif %}>2° Ano - Ensino Médio</option>
-          <option value="3_ensino_medio" {% if teacher.graduation == '3_ensino_medio'%} selected {% endif %}>3° Ano - Ensino Médio</option>
+          <option value="1_ensino_medio" {% if student.school_formation == '1_ensino_medio'%} selected {% endif %}>1° Ano - Ensino Médio</option>
+          <option value="2_ensino_medio" {% if student.school_formation == '2_ensino_medio'%} selected {% endif %}>2° Ano - Ensino Médio</option>
+          <option value="3_ensino_medio" {% if student.school_formation == '3_ensino_medio'%} selected {% endif %}>3° Ano - Ensino Médio</option>
         </optgroup>
       </select>
     </div>
@@ -50,6 +50,6 @@
 <div class="item">
   <div>Carga Horária *</div>
   <div>
-    <input type="number" name="carg_hour" value="{{student.cargHour}}" placeholder='5'>
+    <input type="number" name="carg_hour" value="{{student.carg_hour}}" placeholder='Digite o número da carga horária'>
   </div>
 </div>
