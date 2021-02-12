@@ -5,7 +5,14 @@ const { date, grade } = require('../public/js/utils');
 
 // INDEX
 exports.index = function(req, res) {
-  return res.render('students/index', { students: data.students })
+  const students = data.students.map((student) => {
+    return {
+      ...student,
+      school: grade(student.school_formation),
+    }
+  })
+
+  return res.render('students/index', { students: students })
 }
 
 // CREATE

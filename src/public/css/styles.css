@@ -143,6 +143,10 @@ header {
   display: inline-block;
 }
 
+.table-container tbody tr td span.subjects {
+  margin-top: 0;
+}
+
 /* === FORM = TEACHERS === */
 input, select {
   width: 100%;
@@ -266,7 +270,8 @@ a.buttonEdit {
   box-shadow: 3px 1px 6px -4px black;
 }
 
-.table-container tbody tr td:last-child a {
+.table-container tbody tr td:last-child a,
+.table-container > a {
   background-color: var(--color-green);
   padding: 8px 16px;
   text-decoration: none;
@@ -276,6 +281,12 @@ a.buttonEdit {
   border-radius: 6px;
 }
 
-.table-container tbody tr td:last-child a:hover {
+.table-container > a {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.table-container tbody tr td:last-child a:hover,
+.table-container a:hover {
   background-color: #2FB86E;
 }
