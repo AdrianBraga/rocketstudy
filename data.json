@@ -1,16 +1,6 @@
 {
   "teachers": [
     {
-      "id": 1,
-      "avatar_url": "https://cdn.awsli.com.br/600x700/1035/1035809/produto/38424928/a2686d2305.jpg",
-      "name": "Rocketseat",
-      "date_birth": 946512000000,
-      "graduation": "doutorado",
-      "type_class": "presential",
-      "subjects": "Estude, Se Capacite, Seja um Foguete, Rocketseat, Matemática, Programação, Estude, Se Capacite, Seja um Foguete, Rocketseat, Matemática, Programação",
-      "created_at": 1609283059600
-    },
-    {
       "id": 2,
       "avatar_url": "https://cdn.awsli.com.br/600x700/1035/1035809/produto/38424928/a2686d2305.jpg",
       "name": "Rocketstudy",
@@ -21,24 +11,5 @@
       "created_at": 1609283531775
     }
   ],
-  "students": [
-    {
-      "id": 1,
-      "avatar_url": "https://images.pexels.com/photos/1887920/pexels-photo-1887920.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "name": "João Silva",
-      "email": "joao@gmail.com",
-      "date_birth": 497750400000,
-      "school_formation": "5_ensino_fundamental",
-      "carg_hour": "3"
-    },
-    {
-      "id": 2,
-      "avatar_url": "https://images.pexels.com/photos/189774/pexels-photo-189774.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "name": "ewgwregwrt",
-      "email": "tewtwet@email.com",
-      "date_birth": 918691200000,
-      "school_formation": "1_ensino_medio",
-      "carg_hour": "10"
-    }
-  ]
+  "students": []
 }

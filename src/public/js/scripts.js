@@ -7,3 +7,14 @@ for(item of menuItem) {
     item.classList.add('active')
   }
 }
+
+// CONFIRMAÇÂO DO BOTÂO EXCLUIR
+const formDelete = document.querySelector('#form-delete');
+
+formDelete.addEventListener('submit', function(event) {
+  const confirmation = confirm('Deseja Realmente Excluir?');
+
+  if(!confirmation) {
+    event.preventDefault();
+  };
+});
