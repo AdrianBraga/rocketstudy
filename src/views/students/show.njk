@@ -15,32 +15,23 @@
       </div>
 
       <div class="item">
-        <div>Idade</div>
-        <div>{{student.age}} Anos</div>
+        <div>Email</div>
+        <div>{{student.email}}</div>
       </div>
 
       <div class="item">
-        <div>Grau de Escolaridade</div>
-        <div>{{student.graduation}}</div>
+        <div>Data de Nascimento</div>
+        <div>{{student.date_birth}}</div>
       </div>
 
       <div class="item">
-        <div>Tipo de Aula</div>
-        <div>{{'Presencial' if student.type_class == 'presential' else 'À distancia'}}</div>
+        <div>Ano Escolar</div>
+        <div>{{student.school}}</div>
       </div>
 
       <div class="item">
-        <div>Acompanhamento</div>
-        <div>
-          {% for subject in student.subjects %}
-            <span>{{subject}}</span>
-          {% endfor %}
-        </div>
-      </div>
-
-      <div class="item">
-        <div>Desde</div>
-        <div>{{student.created_at}}</div>
+        <div>Carga Horária</div>
+        <div>{{student.carg_hour}} Horas</div>
       </div>
 
        <form id="form-delete" action="/students?_method=DELETE" method="POST">

@@ -2,7 +2,7 @@ const fs = require('fs');
 const Intl = require('intl');
 
 const data = require('../../data.json');
-const { age, graduation, date } = require('../public/js/utils');
+const { date, grade } = require('../public/js/utils');
 
 // INDEX
 exports.index = function(req, res) {
@@ -73,6 +73,8 @@ exports.show = function(req, res) {
 
   const student = {
     ...foundTeachers,
+    school: grade(foundTeachers.school_formation),
+    date_birth: date(foundTeachers.date_birth).bithDay 
   }
 
   return res.render('students/show', { student })
