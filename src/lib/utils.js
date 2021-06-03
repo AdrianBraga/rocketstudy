@@ -1,14 +1,14 @@
 module.exports = {
   age: function(timestamp) {
     const today = new Date();
-    const birthDate = new Date(timestamp)
+    const birthDate = new Date(timestamp);
 
     let age = today.getFullYear() - birthDate.getFullYear();
     const month = today.getMonth() - birthDate.getMonth();
 
     if(month < 0 || month == 0 && today.getDate() <= birthDate.getDate()) {
       age = age - 1
-    }
+    };
 
     return age;
   },
@@ -23,7 +23,7 @@ module.exports = {
      return 'Doutorado'
    } else {
      return 'Sem Grau de Escolaridade Selecionado'
-   }
+   };
   },
   date: function(timestamp) {
     const date = new Date(timestamp);
@@ -37,8 +37,9 @@ module.exports = {
       month,
       year,
       iso: `${year}-${month}-${day}`,
-      bithDay: `${day}/${month}`
-    }
+      bithDay: `${day}/${month}`,
+      format: `${day}/${month}/${year}`,
+    };
     
   },
   grade: function(education) {
@@ -62,4 +63,4 @@ module.exports = {
       return 'Nenhum Ano Escolar Selecionado!';
     }
    },
-}
+};
