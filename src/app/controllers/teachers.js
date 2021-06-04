@@ -1,31 +1,62 @@
-const { date, grade } = require('../../lib/utils');
+const { graduation, age, date } = require('../../lib/utils');
+
+const Teacher = require('../models/Teacher');
 
 module.exports = {
   index(req, res) {
-    return res.render('teachers/index');
+   Teacher.index((teacher) => {
+    return res.render('teachers/index', { teacher });
+   })
   },
   create(req, res) {
     return res.render('teachers/create');
   },
   post(req, res) {
-    const keys = Object.keys(req.body)
+    const keys = Object.keys(req.body);
 
     for(key of keys) {
       if(req.body[key] == '') return res.send('Erro! Por favor preencha todos os campos')
-    }
+    };
 
-    return;
+    Teacher.post(req.body, (teacher) => {
+      return res.redirect(`/teachers/${teacher.id}`);
+    });
   },
   show(req, res) {
-    return;
+    Teacher.show(req.params.id, (teacher) => {
+      if(!teacher) return res.send('Professor não encontrado!')
+
+      teacher.birth_date = age(teacher.birth_date)
+      teacher.education_level = graduation(teacher.education_level)
+      teacher.subjects_taught = teacher.subjects_taught.split(',')
+      teacher.created_at = date(teacher.created_at).format
+
+      return res.render('teachers/show', { teacher })
+    })
   },
   edit(req, res) {
-    return res.render('teachers/edit');
+    Teacher.show(req.params.id, (teacher) => {
+    if(!teacher) return res.send('Professor não encontrado!')
+
+    teacher.birth_date = date(teacher.birth_date).iso
+
+    return res.render('teachers/edit', { teacher });
+    })
   },
   put(req, res) {
-    return;
+    const keys = Object.keys(req.body);
+
+    for(key of keys) {
+      if(req.body[key] == '') return res.send('Erro! Por favor preencha todos os campos')
+    };
+
+    Teacher.put(req.body, () => {
+      return res.redirect(`/teachers/${req.body.id}`);
+    });
   },
   delete(req, res) {
-    return;
+    Teacher.delete(req.body.id, () => {
+      return res.redirect(`/teachers`)
+    })
   }
 }

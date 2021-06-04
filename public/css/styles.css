@@ -278,6 +278,7 @@ a.buttonEdit {
   text-transform: uppercase;
   color: var(--color-text);
   font-size: 12px;
+  font-weight: bold;
   border-radius: 6px;
 }
 

@@ -5,5 +5,5 @@ module.exports = new Pool({
   password: 'ben1231025',
   host: 'localhost',
   port: 5432,
-  database: 'my_teacher'
+  database: 'rocketstudy'
 })
