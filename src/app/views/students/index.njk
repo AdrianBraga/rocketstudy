@@ -9,6 +9,7 @@
           <th>Nome</th>
           <th>Email</th>
           <th>Ano Escolar</th>
+          <th>Professor</th>
           <th>Ação</th>
         </tr>
       </thead>
@@ -33,6 +34,7 @@
               {% if student.education_level == '2_ensino_medio' %}2° Ano - Ensino Médio{% endif %}
               {% if student.education_level == '3_ensino_medio' %}3° Ano - Ensino Médio{% endif %}
             </td>
+            <td>{{student.teacher_name}}</td>
             <td><a href="/students/{{student.id}}">Ver</a></td>
           </tr>
         {% endfor %}
