@@ -178,8 +178,9 @@ input[type=number] {
 }
 
 button[type="submit"],
-a.buttonEdit {
-  padding: 16px 32px;
+a.buttonEdit,
+a.addTeacher {
+  padding: 8px 32px;
   background-color: var(--color-green);
   color: var(--color-text);
   border-radius: 4px;
@@ -190,11 +191,13 @@ a.buttonEdit {
 }
 
 button[type="submit"]:hover,
-a.buttonEdit:hover {
+a.buttonEdit:hover,
+a.addTeacher:hover {
   background-color: #2FB86E;
 }
 
-a.buttonEdit {
+a.buttonEdit,
+a.addTeacher {
   display: block;
   text-align: center;
   text-decoration: none;
@@ -250,7 +253,7 @@ a.buttonEdit {
 
 .table-container tbody tr td div {
   display: grid;
-  grid-template-columns: 45px 1fr;
+  grid-template-columns: 64px 1fr;
   align-items: center;
 }
 
@@ -286,4 +289,32 @@ a.buttonEdit {
 .table-container tbody tr td:last-child a:hover,
 .table-container a:hover {
   background-color: #2FB86E;
+}
+
+/* === FILTERS === */
+.table-container .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-container .header a,
+.table-container .header form button {
+  margin: 0;
+  width: 120px;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.table-container .header form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-container .header form input {
+  border: 1px solid #eee;
+  padding: 8px 16px;
+  margin-right: 10px;
 }

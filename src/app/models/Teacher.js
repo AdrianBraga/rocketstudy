@@ -11,6 +11,18 @@ module.exports = {
     })
   },
 
+  findBy(filter, callback) {
+    db.query(`SELECT * FROM teachers 
+    WHERE name ILIKE '%${filter}%'
+    OR subjects_taught ILIKE '%${filter}%'
+    GROUP BY teachers.id
+    ORDER BY name ASC`, (err, results) => {
+      if(err) throw `Database Error! ${err}`
+
+      callback(results.rows)
+    })
+  },
+
   post(data, callback) {
     const query = `
       INSERT INTO teachers (

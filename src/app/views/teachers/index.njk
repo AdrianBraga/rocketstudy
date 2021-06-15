@@ -2,7 +2,15 @@
 
 {% block content %}
   <div class="card table-container">
-    <a href="/teachers/create">Adicionar Professor</a>
+    <div class="header">
+      <a class="addTeacher" href="/teachers/create">Adicionar Professor</a>
+
+      <form action="/teachers" method="GET">
+        <input type="text" name="filter" placeholder="Filtre por Nome ou Acompanhamento" value={{filter}}>
+        <button type="submit">Filtrar</button>
+      </form>
+    </div>
+
     <table style='width: 100%'>
       <thead>
         <tr>
