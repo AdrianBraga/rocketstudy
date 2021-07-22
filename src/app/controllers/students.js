@@ -4,17 +4,28 @@ const Student = require('../models/Student');
 
 module.exports = {
   index(req, res) {
-   let { filter } = req.query;
+   let { filter, page, limit } = req.query;
 
-   if(filter) {
-    Student.findBy(filter, (students) => {
-      return res.render('students/index', { students, filter });
-    })
-   } else {
-    Student.index((students) => {
-      return res.render('students/index', { students });
-     })
-   }
+    page = page || 1;
+    limit = limit || 1;
+    let offset = limit * (page - 1);
+
+    const params = {
+      filter,
+      page,
+      limit,
+      offset,
+      callback(students) {
+        const pagination = {
+          total: Math.ceil(students[0].total / limit),
+          page,
+        }
+
+        return res.render('students/index', { students, filter, pagination });
+      }
+    }
+
+    Student.paginate(params)
   },
   create(req, res) {
     Student.teachersSelectOptions((options) => {
@@ -68,5 +79,5 @@ module.exports = {
     Student.delete(req.body.id, () => {
       return res.redirect(`/students`)
     })
-  }
+  },
 }
