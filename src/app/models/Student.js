@@ -14,6 +14,20 @@ module.exports = {
     })
   },
 
+  findBy(filter, callback) {
+    db.query(`
+      SELECT students.*, teachers.name AS teacher_name
+      FROM students
+      LEFT JOIN teachers ON (students.teacher_id = teachers.id)
+      WHERE students.name ILIKE '%${filter}%'
+      OR teachers.name ILIKE '%${filter}%'`, 
+      (err, results) => {
+      if(err) throw `Database Error! ${err}`
+
+      callback(results.rows)
+    })
+  },
+
   post(data, callback) {
     const query = `
       INSERT INTO students (

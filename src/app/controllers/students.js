@@ -4,9 +4,17 @@ const Student = require('../models/Student');
 
 module.exports = {
   index(req, res) {
-   Student.index((students) => {
-    return res.render('students/index', { students });
-   })
+   let { filter } = req.query;
+
+   if(filter) {
+    Student.findBy(filter, (students) => {
+      return res.render('students/index', { students, filter });
+    })
+   } else {
+    Student.index((students) => {
+      return res.render('students/index', { students });
+     })
+   }
   },
   create(req, res) {
     Student.teachersSelectOptions((options) => {
